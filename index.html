@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>TODO List 应用</title>
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+    <div class="container">
+        <h1>我的待办事项</h1>
+    
+        <!-- 任务添加 -->
+        <div class="add-task">
+            <!-- 任务标题输入框（必填） -->
+            <div class="form-group">
+                <input type="text" id="task-title" placeholder="任务标题（必填）" maxlength="100">
+            </div>
+            <!-- 任务描述输入框（可选） -->
+            <div class="form-group">
+                <textarea id="task-description" placeholder="任务描述（可选）" rows="3" maxlength="500"></textarea>
+            </div>
+            <!-- 任务分类选择和添加按钮 -->
+            <div class="form-group">
+                <select id="task-category">
+                    <option value="work">工作</option>
+                    <option value="study">学习</option>
+                    <option value="life">生活</option>
+                </select>
+                <button id="add-task-btn" class="btn-primary">添加任务</button>
+            </div>
+        </div>
+
+        <!-- 筛选和搜索区域 -->
+        <div class="filter-section">
+            <!-- 搜索输入框：根据标题和描述搜索任务 -->
+            <input type="text" id="search-input" placeholder="搜索任务...">
+            <!-- 任务状态筛选 -->
+            <div class="filters">
+                <button class="filter-btn active" data-filter="all">全部</button>
+                <button class="filter-btn" data-filter="active">未完成</button>
+                <button class="filter-btn" data-filter="completed">已完成</button>
+            </div>
+            <!-- 任务排序 -->
+            <div class="sort-section">
+                <label for="sort-select">排序方式：</label>
+                <select id="sort-select">
+                    <option value="created-desc">创建时间（最新优先）</option>
+                    <option value="created-asc">创建时间（最早优先）</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- 分类标签 -->
+        <div class="category-tabs">
+            <button class="category-tab active" data-category="all">全部</button>
+            <button class="category-tab" data-category="work">工作</button>
+            <button class="category-tab" data-category="study">学习</button>
+            <button class="category-tab" data-category="life">生活</button>
+        </div>
+
+        <!-- 任务统计信息 -->
+        <div class="task-stats">
+            <p>总任务数：<span id="total-tasks">0</span></p>
+            <p>已完成：<span id="completed-tasks">0</span></p>
+            <p>未完成：<span id="active-tasks">0</span></p>
+        </div>
+
+        <!-- 任务列表区域：动态生成任务项 -->
+        <ul class="task-list" id="task-list">
+
+            <li class="empty-message">暂无任务，请添加新任务</li> <!-- 空状态提示 -->
+        </ul>
+
+        <div class="actions">
+            <button id="clear-completed" class="btn-secondary">清除已完成任务</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
